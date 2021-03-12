@@ -6,12 +6,12 @@
 # Author: machaerus
 # https://gitlab.com/machaerus
 
-source colors.sh
+source ~/Documents/Scripts/Polybar/colors.sh
 
 net_print() {
 
 	# CONNECTED_WIFI=$(iwconfig wlan0 | grep ESSID | wc -l)
-	ESSID=$(iwconfig wlan0 | grep ESSID | cut -d: -f2 | xargs)
+	ESSID=$(iwconfig wlo1 | grep ESSID | cut -d: -f2 | xargs)
 	[ "$ESSID" = "off/any" ] && CONNECTED_WIFI=0 || CONNECTED_WIFI=1
 	CONNECTED_VPN=$(ifconfig -a | grep tun0 | wc -l)
 	# CONNECTED_HAMACHI=$(hamachi | grep status | cut -d ':' -f 2 | xargs)

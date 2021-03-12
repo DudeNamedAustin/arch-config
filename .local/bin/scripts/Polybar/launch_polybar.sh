@@ -12,8 +12,12 @@ sleep 1
 rm /tmp/polybar*
 rm /tmp/ipc-polybar*
 # Launch bar1 and bar2
-polybar --reload -c ~/.config/polybar/config.ini main &
-ln -s /tmp/polybar_mqueue.$! /tmp/ipc-polybar-top
+polybar --reload -c ~/.config/polybar/config.ini DP &
+ln -s /tmp/polybar_mqueue.$! /tmp/ipc-polybar-top-dp
+polybar --reload -c ~/.config/polybar/config.ini DVI &
+ln -s /tmp/polybar_mqueue.$! /tmp/ipc-polybar-top-dvi
+polybar --reload -c ~/.config/polybar/config.ini HDMI &
+ln -s /tmp/polybar_mqueue.$! /tmp/ipc-polybar-top-hdmi
 polybar --reload -c ~/.config/polybar/config_bottom.ini main &
 ln -s /tmp/polybar_mqueue.$! /tmp/ipc-polybar-bottom
 #polybar --reload -c ~/.config/polybar/config_monitor_2.ini main &

@@ -49,7 +49,6 @@ bindsym --whole-window $mod+button2 floating toggle
 bindsym $mod+Return exec kitty
 
 # rofi
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 bindcode $mod+65 exec "rofi -modi drun,run -show drun"
 
 # polybar
@@ -80,7 +79,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # locks the pc
-bindsym $mod+Control+l exec i3lock
+bindsym $mod+Control+l exec i3lock --color=000000
 
 # change focus between tiling / floating windows
 # bindsym $mod+space focus mode_toggle
@@ -198,37 +197,22 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Open specific applications in floating (+ sticky) mode
-# for_window [class   = "rofi"] floating enable sticky enable
-# for_window [class   = "Indicator-stickynotes"] floating enable
-# for_window [class   = "Lxappearance"] floating enable
-# for_window [title   = "\bopencvimage\b"] floating enable
-# for_window [class       = "Nautilus"] floating enable resize set 921 897
-# for_window [class   = "Nitrogen"] floating enable resize set 921 897
-
-# Move certain apps to the scratchpad
-# for_window [class       = "Indicator-stickynotes"] move to scratchpad
-
-# No border for..
-# for_window [class       = "Firefox"] border pixel 0
-
 # Move certain apps to specific workspaces
 # 1 Web browser
-# 2 Coding
-# 3 Notes / Misc.
-# 4 
-# 5 
-# 6 
-# 7 
-# 8 
-# 9
-# 0
+# 2 Terminal / KeePass
+# 3 Misc.
+# 4 Coding
+# 5 Music
+# 6 ??
+# 7 ??
+# 8 ??
+# 9 ??
+# 10 ??
 
-# for_window [class       = "Org.gnome.Nautilus"] move window to workspace $ws3
+# for_window [class       = "VSCode"] move window to workspace $ws4
 
-# for_window [class       = "Sublime_text"] move window to workspace $ws2
-# for_window [class       = "VSCodium"] move window to workspace $ws2
-# for_window [class       = "Atom"] move window to workspace $ws2
+# for_window [class       = "kitty"] move window to workspace $ws2
+# for_window [class       = "keepassxc"] move window to workspace $ws2
 
 # for_window [class       = "Firefox"] move window to workspace $ws1
 
@@ -238,13 +222,11 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 #   |___/ |_/_/ \_\_|_\ |_|  \___/|_|  
 #  
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
 # sets multi-monitor positions
 exec --no-startup-id sh ~/Documents/Scripts/set-monitor.sh &
 
-# sets background 20231d hex
-# exec --no-startup-id "feh --no-fehbg --bg-fill /media/pictures/Desktop-Wallpapers/skull.png"
+# mounts backup ssd onto ~/picard
+exec --no-startup-id sudo mount -B /media picard &
+
+# sets backgroun
 exec --no-startup-id nitrogen --restore &
